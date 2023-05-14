@@ -1,0 +1,96 @@
+﻿<h3>TicTacToe</h3>
+
+
+@code {
+        char[,] Board = { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
+        char player = 'o';
+        List<List<int[]>> WinningCombos = new()
+    {
+        new List<int[]> ()
+        {
+
+            new int[]{0,0} , new int[]{0,1} , new int[]{0,2}
+            // First Row
+        },
+
+        new List<int[]>()
+        {
+           new int[]{1,0} , new int[]{1,1} , new int[]{1,2}
+           // Second Row
+        },
+        new List<int[]>()
+        {
+
+            new int[]{2,0} , new int[]{2,1} , new int[]{2,2}
+            // Third Row
+        },
+
+        new List<int[]>()
+        {
+            new int[]{0,0} , new int[]{1,0} , new int[]{2,0}
+            //First Column
+        },
+        new List<int[]>()
+        {
+            new int[]{0,1} , new int[]{1,1} ,new int[]{2,1}
+            //Second Column
+        },
+       new List<int[]>()
+       {
+
+           new int[]{0,2} , new int[]{1,2} , new int[]{2,2}
+           //Third Column
+       },
+       new List<int[]>()
+       {
+           new int[]{0,0} , new int[]{1,1} , new int[]{2,2}
+
+
+       },
+       new List<int[]>()
+       {
+         {new int[] { 0,2 }, new int[] { 1, 1 }, new int[] { 2, 0}
+
+       },
+
+
+
+    };
+
+
+
+    }
+
+    public async Task SquareClicked(int row , int col)
+    {
+        
+
+    }
+
+@page "/"
+@inject IJSRuntime JS
+<div>
+
+
+    <div class="board">
+        @for(int i = 0; i < 3; i++)
+        {
+            int row = i;
+            for(int j = 0; j < 3; j++)
+            {
+                int col = j;
+                
+
+                <div class="square" @onclick="()=> SquareClicked(row , col)">
+                   <h5 class="char">@Board[row, col]</h5>
+
+
+                </div>
+
+            }
+        }
+
+
+
+    </div>
+</div>
